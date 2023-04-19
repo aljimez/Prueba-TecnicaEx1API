@@ -22,9 +22,10 @@ public class Parties {
 	private String description;
 
 	@ManyToOne
-	@JoinColumn(name = "id_parties")
+	@JoinColumn(name = "game")
 	private Games game;
 
+	
 	@ManyToOne
 	@JoinColumn(name = "party_host")
 	private Users party_host;
@@ -38,6 +39,14 @@ public class Parties {
 		this.party_host = party_host;
 	}
 
+	public String getNombre_par() {
+		return nombre_par;
+	}
+
+	public void setNombre_par(String nombre_par) {
+		this.nombre_par = nombre_par;
+	}
+
 	@Override
 	public String toString() {
 		return "Parties [id=" + id + ", nombre_par=" + nombre_par + ", description=" + description + ", game=" + game
@@ -48,7 +57,7 @@ public class Parties {
 		return nombre_par;
 	}
 
-	public void setName(String name) {
+	public void setName(String nombre_par) {
 		this.nombre_par = nombre_par;
 	}
 

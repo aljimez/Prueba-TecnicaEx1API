@@ -22,14 +22,14 @@ public class Games {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // busca ultimo valor e incrementa desde id final de db
 	private Long id;
 
-	private String nombregame;
 	@Column(name = "nombre-game") // no hace falta si se llama igual
+	private String nombregame;
 
-	private String descripction;
 	@Column(name = "description")
+	private String descripction;
 
-	private int playtime;
 	@Column(name = "playtime")
+	private int playtime;
 
 	@OneToMany
 	@JoinColumn(name = "id")

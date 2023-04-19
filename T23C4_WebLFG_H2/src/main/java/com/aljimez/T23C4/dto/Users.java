@@ -13,84 +13,90 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+
 @Entity
-@Table(name="users")//en caso que la tabla sea diferente
-	//Atributos de entidad cliente
+@Table(name = "users") // en caso que la tabla sea diferente
+// Atributos de entidad cliente
 public class Users {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)//busca ultimo valor e incrementa desde id final de db
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // busca ultimo valor e incrementa desde id final de db
 	private Long id;
-	
-	@Column(name = "username")//no hace falta si se llama igual
+
+	@Column(name = "username") // no hace falta si se llama igual
 	private String username;
-	
+
 	@Column(name = "password")
 	private String password;
-	
-	@Column(name ="email")
+
+	@Column(name = "email")
 	private String email;
 
-@OneToMany
-@JoinColumn(name="id")
-	private  List<Parties> parties;
+	@OneToMany
+	@JoinColumn(name = "id")
+	private List<Parties> parties;
 
-public Users(Long id, String username,String password,String email) {
-	//super();
-	this.id = id;
-	this.username = username;
-	this.password = password;
-	this.email = email;
-}
-@JsonIgnore
-@OneToMany(fetch = FetchType.LAZY, mappedBy = "parties")
-public List<Parties> getParty() {
-	return parties;
-}
+	public Users(Long id, String username, String password, String email) {
+		// super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+	}
 
-public Long getId() {
-	return id;
-}
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "parties")
+	public List<Parties> getParty() {
+		return parties;
+	}
 
-public void setId(Long id) {
-	this.id = id;
-}
+	public Long getId() {
+		return id;
+	}
 
-public String getPassword() {
-	return password;
-}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-public void setPassword(String password) {
-	this.password = password;
-}
+	public String getPassword() {
+		return password;
+	}
 
-public String getEmail() {
-	return email;
-}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-public void setEmail(String email) {
-	this.email = email;
-}
+	public String getEmail() {
+		return email;
+	}
 
-public String getUsername() {
-	return username;
-}
-public void setUsername(String username) {
-	this.username = username;
-}
-public List<Parties> getParties() {
-	return parties;
-}
-public void setParties(List<Parties> parties) {
-	this.parties = parties;
-}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-@Override
-public String toString() {
-	return "Users [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email + ", parties="
-			+ parties + "]";
-}
-public Users() {
+	public String getUsername() {
+		return username;
+	}
 
-}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public List<Parties> getParties() {
+		return parties;
+	}
+
+	public void setParties(List<Parties> parties) {
+		this.parties = parties;
+	}
+
+	@Override
+	public String toString() {
+		return "Users [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email
+				+ ", parties=" + parties + "]";
+	}
+
+	public Users() {
+
+	}
 
 }

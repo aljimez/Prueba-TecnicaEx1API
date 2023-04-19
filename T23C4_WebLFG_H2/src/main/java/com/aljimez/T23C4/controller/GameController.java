@@ -24,7 +24,7 @@ public class GamesController {
 	GamesServiceImpl gamesServideImpl;
 	
 	@GetMapping("/games")
-	public List<Games> listarGamess(){
+	public List<Games> listarGames(){
 		return gamesServideImpl.listarGames();
 	}
 	

@@ -32,7 +32,7 @@ public class UserController {
 		return UserServiceImpl.guardarUsers(User);
 	}
 
-	@GetMapping("/User/{id}")
+	@GetMapping("/users/{id}")
 	public Users UserXID(@PathVariable(name = "id") Long id) {
 
 		Users User_xid = new Users();
@@ -58,7 +58,7 @@ public class UserController {
 		return User_actualizado;
 	}
 
-	@DeleteMapping("/user/{id}")
+	@DeleteMapping("/users/{id}")
 	public void eleiminarUser(@PathVariable(name = "id") Long id) {
 		UserServiceImpl.eliminarUser(id);
 	}

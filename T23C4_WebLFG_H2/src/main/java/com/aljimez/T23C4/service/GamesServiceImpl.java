@@ -9,7 +9,7 @@ import com.aljimez.T23C4.dao.IGamesDAO;
 import com.aljimez.T23C4.dto.Games;
 
 @Service
-public  class GamesServiceImpl implements IGamesService{
+public   class GamesServiceImpl implements IGamesService{
 
 	@Autowired
 	IGamesDAO iGamesDAO;
@@ -39,8 +39,6 @@ public  class GamesServiceImpl implements IGamesService{
 		iGamesDAO.deleteById(id);
 		
 	}
-
-
 
 	
 	
