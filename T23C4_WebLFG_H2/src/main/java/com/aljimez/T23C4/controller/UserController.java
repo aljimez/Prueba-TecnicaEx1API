@@ -21,18 +21,18 @@ public class UserController {
 	@Autowired
 	UserServiceImpl UserServiceImpl;
 
-	@GetMapping("/name")
+	@GetMapping("/users")
 	public List<Users> listarUsers() {
 		return UserServiceImpl.listarUsers();
 	}
 
-	@PostMapping("/n_parties")
+	@PostMapping("/users")
 	public Users salvarUser(@RequestBody Users User) {
 
 		return UserServiceImpl.guardarUsers(User);
 	}
 
-	@GetMapping("/User/id")
+	@GetMapping("/User/{id}")
 	public Users UserXID(@PathVariable(name = "id") Long id) {
 
 		Users User_xid = new Users();
@@ -44,7 +44,7 @@ public class UserController {
 		return User_xid;
 	}
 
-	@PutMapping("/User/{id}")
+	@PutMapping("/users/{id}")
 	public Users actualizarUser(@PathVariable(name = "id") Long id, @RequestBody Users User) {
 
 		Users User_seleccionado = new Users(id, User.getUsername(), User.getPassword(), User.getEmail());
@@ -58,7 +58,7 @@ public class UserController {
 		return User_actualizado;
 	}
 
-	@DeleteMapping("/User/{id}")
+	@DeleteMapping("/user/{id}")
 	public void eleiminarUser(@PathVariable(name = "id") Long id) {
 		UserServiceImpl.eliminarUser(id);
 	}

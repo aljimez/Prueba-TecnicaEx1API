@@ -15,81 +15,80 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="games")//en caso que la tabla sea diferente
+@Table(name = "games") // en caso que la tabla sea diferente
 public class Games {
-	//Atributos de entidad cliente
+	// Atributos de entidad cliente
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)//busca ultimo valor e incrementa desde id final de db
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // busca ultimo valor e incrementa desde id final de db
 	private Long id;
-	
-	private String nombre_game;
-	@Column(name = "nombre-game")//no hace falta si se llama igual
-	
+
+	private String nombregame;
+	@Column(name = "nombre-game") // no hace falta si se llama igual
+
 	private String descripction;
 	@Column(name = "description")
-	
+
 	private int playtime;
-	@Column(name ="playtime")
-	
-	
-@OneToMany
-@JoinColumn(name="id")
+	@Column(name = "playtime")
+
+	@OneToMany
+	@JoinColumn(name = "id")
 	private List<Parties> parties;
-	
-	
-	public Games(Long id, String nombre_game,String description,int playtime) {
-	//super();
-	this.id = id;
-	this.nombre_game = nombre_game;
-	this.descripction = description;
-	this.playtime = playtime;
-	
-}
-@JsonIgnore
-@OneToMany(fetch = FetchType.LAZY, mappedBy = "Parties")
-public List<Parties> getParty() {
-	return parties;
-}
 
+	public Games(Long id, String nombregame, String description, int playtime) {
+		// super();
+		this.id = id;
+		this.nombregame = nombregame;
+		this.descripction = description;
+		this.playtime = playtime;
 
-public Long getId() {
-	return id;
-}
+	}
 
-public void setId(Long id) {
-	this.id = id;
-}
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Parties")
+	public List<Parties> getParty() {
+		return parties;
+	}
 
-public String getDescripction() {
-	return descripction;
-}
+	public Long getId() {
+		return id;
+	}
 
-public void setDescripction(String descripction) {
-	this.descripction = descripction;
-}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-public int getPlaytime() {
-	return playtime;
-}
+	public String getDescripction() {
+		return descripction;
+	}
 
-public void setPlaytime(int playtime) {
-	this.playtime = playtime;
-}
+	public void setDescripction(String descripction) {
+		this.descripction = descripction;
+	}
 
+	public int getPlaytime() {
+		return playtime;
+	}
 
-@Override
-public String toString() {
-	return "Games [id=" + id + ", descripction=" + descripction + ", playtime=" + playtime + ", nombre_Game=" + nombre_game + "]";
-}
+	public void setPlaytime(int playtime) {
+		this.playtime = playtime;
+	}
 
-public String getnombre_Game() {
-	return nombre_game;
-}
+	@Override
+	public String toString() {
+		return "Games [id=" + id + ", descripction=" + descripction + ", playtime=" + playtime + ", nombre_Game="
+				+ nombregame + "]";
+	}
 
-public void setnombre_Game(String nombre_game) {
-	this.nombre_game = nombre_game;
-}
-public Games() {
+	public String getnombre_Game() {
+		return nombregame;
+	}
 
-}
+	public void setnombre_Game(String nombre_game) {
+		this.nombregame = nombregame;
+	}
+
+	public Games() {
+
+	}
 }
